@@ -63,3 +63,10 @@ Test all methods to ensure they handle various scenarios correctly, such
 as valid and invalid deposit and withdrawal amounts, and checking
 balance. */
 
+let testInstance = new BankAccountConstructor("Test User", 50);
+
+testInstance.deposit(500);
+testInstance.withdraw(80);
+testInstance.deposit(-2);
+testInstance.withdraw(1000);
+testInstance.getBalance();

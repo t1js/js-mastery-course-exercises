@@ -9,6 +9,10 @@ account holder) and initialBalance (the starting balance of the account).
 The balance should be a private variable, not accessible outside the
 constructor directly. */
 
+function BankAccountConstructor(owner, initialBalance) {
+    this.owner = owner;
+    this.balance = initialBalance;
+}
 
 /* Implement Deposit Method:
 Add a deposit method that takes an amount as an argument.
@@ -18,6 +22,18 @@ the new balance.
 If the amount is not positive, print an error message stating that the
 deposit amount must be positive. */
 
+function BankAccountConstructor(owner, initialBalance) {
+    this.owner = owner;
+    this.balance = initialBalance;
+    this.deposit = function(amount) {
+        if (amount > 0) {
+            this.balance += amount;
+            console.log(`Deposit successful. Deposited ${amount}. New balance: ${this.balance}`);
+        } else { 
+            console.error("The deposit amount must be positive.")
+        }
+    }
+}
 
 /* Implement Withdrawal Method:
 Add a withdraw method that takes an amount as an argument.
@@ -26,6 +42,27 @@ it is, subtract the amount from the balance and print a confirmation
 message with the withdrawn amount and the new balance.
 If there isn’t enough balance, print an error message indicating insufficient
 funds. */
+
+function BankAccountConstructor(owner, initialBalance) {
+    this.owner = owner;
+    this.balance = initialBalance;
+    this.deposit = function(amount) {
+        if (amount > 0) {
+            this.balance += amount;
+            console.log(`Deposit successful. Deposited ${amount}. New balance: ${this.balance}`);
+        } else { 
+            console.error("The deposit amount must be positive.")
+        }
+    };
+    this.withdraw = function(amount) {
+        if (amount < this.balance) {
+            this.balance -= amount;
+            console.log(`Withdrawal successful. Withdrawed ${amount}. New balance: ${this.balance}`);
+        } else {
+            console.error("Insufficient funds. The withdrawal amount excedes balance.")
+        }
+    }
+}
 
 
 /* Implement Get Balance Method:

@@ -28,12 +28,7 @@ day or special screenings.
 
 5. Implement a Viewing Schedule Display:
 Add a method showSchedule that prints out all movies, their showtimes, and
-available seats.
-
-6. Testing and Validation:
-Create an instance of the Theater and use the methods to add movies,
-attempt to book beyond capacity, purchase tickets, and display the current
-movie schedule.*/
+available seats.*/
 
 function MovieTheaterReservationSystemConstructor(theaterName, location) {
     this.theaterName = theaterName;
@@ -66,24 +61,24 @@ function MovieTheaterReservationSystemConstructor(theaterName, location) {
     };
     this.purchaseTicket = function(movieName, showTime, paidAmount) {
         const movieShowing = this.movieShowings[movieName];
-        const originalPrice = movieShowing.price;
+        let adjustedPrice;
 
         if (showTime >= 0 && showTime < 12) {
-            movieShowing.price *= 0.5;
+            adjustedPrice = movieShowing.price * 0.5;
         } else if (showTime >= 12 && showTime < 17) {
-            movieShowing.price = movieShowing.price;
+            adjustedPrice = movieShowing.price;
         } else if (showTime >= 17 && showTime < 24) {
-            movieShowing.price *= 1.5;
+            adjustedPrice = movieShowing.price * 1.5;
         }
 
         if (movieShowing && movieShowing.time === showTime) {
             if (movieShowing.seats.available > 0) {
-                if (paidAmount === movieShowing.price) {
+                if (paidAmount === adjustedPrice) {
                     movieShowing.seats.available -= 1;
                     console.log(`You've purchased a ticket for ${movieName} at ${showTime}.`);
-                } else if (paidAmount > movieShowing.price) {
+                } else if (paidAmount > adjustedPrice) {
                     movieShowing.seats.available -= 1;
-                    console.log(`You've purchased a ticket for ${movieName} at ${showTime}. Your change is ${paidAmount - movieShowing.price}`);
+                    console.log(`You've purchased a ticket for ${movieName} at ${showTime}. Your change is ${paidAmount - adjustedPrice}`);
                 } else {
                     console.error("Not enough money to purchase a ticket. Sorry!");
                 }
@@ -93,7 +88,6 @@ function MovieTheaterReservationSystemConstructor(theaterName, location) {
     } else {
         console.error("No such movie at provided time.");
     }
-    movieShowing.price = originalPrice;
 };
     this.showSchedule = function() {
         for (const movieName in this.movieShowings) {
@@ -102,3 +96,34 @@ function MovieTheaterReservationSystemConstructor(theaterName, location) {
         }
     }
 }
+
+/* 6. Testing and Validation:
+Create an instance of the Theater and use the methods to add movies,
+attempt to book beyond capacity, purchase tickets, and display the current
+movie schedule.*/
+
+let testInstance = new MovieTheaterReservationSystemConstructor("Test Cinema", "Test Location");
+
+testInstance.addMovie("some movie", 13, 50, 100);
+testInstance.addMovie("some other movie", 18, 40, 150);
+
+//valid seat reservation
+testInstance.reserveSeat("some movie", 13);
+//valid movie, invalid time, should throw an error
+testInstance.reserveSeat("some movie", 18);
+//invalid movie, valid time, should throw an error
+testInstance.reserveSeat("invalid movie", 13);
+//invalid movie, invalid time, should throw an error
+testInstance.reserveSeat("invalid movie", 19);
+//valid ticket purchase, no change
+testInstance.purchaseTicket("some movie", 13, 100);
+//valid ticket purchase, change 168
+testInstance.purchaseTicket("some movie", 13, 268);
+//invalid movie, valid time, should throw an error
+testInstance.purchaseTicket("invalid movie", 13, 100);
+//valid movie, invalid time, should throw an error
+testInstance.purchaseTicket("some movie", 17, 100);
+//valid movie, valid time, not enough money, should throw an error
+testInstance.purchaseTicket("some movie", 13, 40);
+
+testInstance.showSchedule();

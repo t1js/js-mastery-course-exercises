@@ -35,3 +35,18 @@ Create an instance of the Theater and use the methods to add movies,
 attempt to book beyond capacity, purchase tickets, and display the current
 movie schedule.*/
 
+function MovieTheaterReservationSystemConstructor(theaterName, location) {
+
+    this.addMovie = function(movieName, showTime, seatCount) {
+
+    };
+    this.reserveSeat = function(movieName, showTime){
+
+    };
+    this.purchaseTicket = function() {
+
+    };
+    this.showSchedule = function() {
+        
+    }
+}

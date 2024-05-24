@@ -36,17 +36,38 @@ attempt to book beyond capacity, purchase tickets, and display the current
 movie schedule.*/
 
 function MovieTheaterReservationSystemConstructor(theaterName, location) {
-
+    this.theaterName = theaterName;
+    this.location = location;
+    this.movieShowings = {};
     this.addMovie = function(movieName, showTime, seatCount) {
-
+        this.movieShowings[movieName] = {
+            time: showTime,
+            seats: {
+                total: seatCount,
+                available: seatCount,
+                arrangement: []
+            }
+        };
     };
     this.reserveSeat = function(movieName, showTime){
+        const movieShowing = this.movieShowings[movieName];
+
+        if (movieShowing && movieShowing.time === showTime) {
+            if (movieShowing.seats.available > 0) {
+                movieShowing.seats.available -= 1;
+                console.log(`You've reserved a seat for ${movieName} at ${showTime}.`)
+            } else {
+                console.error("Sorry, no available seats left.")
+            }
+        } else {
+            console.error("No such movie at provided time.")
+        }
 
     };
     this.purchaseTicket = function() {
 
     };
     this.showSchedule = function() {
-        
+
     }
 }

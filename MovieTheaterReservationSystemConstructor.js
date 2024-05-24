@@ -63,15 +63,14 @@ function MovieTheaterReservationSystemConstructor(theaterName, location) {
         const movieShowing = this.movieShowings[movieName];
         let adjustedPrice;
 
-        if (showTime >= 0 && showTime < 12) {
-            adjustedPrice = movieShowing.price * 0.5;
-        } else if (showTime >= 12 && showTime < 17) {
-            adjustedPrice = movieShowing.price;
-        } else if (showTime >= 17 && showTime < 24) {
-            adjustedPrice = movieShowing.price * 1.5;
-        }
-
         if (movieShowing && movieShowing.time === showTime) {
+            if (showTime >= 0 && showTime < 12) {
+                adjustedPrice = movieShowing.price * 0.5;
+            } else if (showTime >= 12 && showTime < 17) {
+                adjustedPrice = movieShowing.price;
+            } else if (showTime >= 17 && showTime < 24) {
+                adjustedPrice = movieShowing.price * 1.5;
+            }
             if (movieShowing.seats.available > 0) {
                 if (paidAmount === adjustedPrice) {
                     movieShowing.seats.available -= 1;
@@ -119,8 +118,10 @@ testInstance.reserveSeat("invalid movie", 19);
 testInstance.purchaseTicket("some movie", 13, 100);
 //valid ticket purchase, change 168
 testInstance.purchaseTicket("some movie", 13, 268);
+
 //invalid movie, valid time, should throw an error
 testInstance.purchaseTicket("invalid movie", 13, 100);
+
 //valid movie, invalid time, should throw an error
 testInstance.purchaseTicket("some movie", 17, 100);
 //valid movie, valid time, not enough money, should throw an error

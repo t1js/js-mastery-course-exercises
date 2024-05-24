@@ -62,12 +62,14 @@ function MovieTheaterReservationSystemConstructor(theaterName, location) {
         } else {
             console.error("No such movie at provided time.")
         }
-
     };
     this.purchaseTicket = function() {
 
     };
     this.showSchedule = function() {
-
+        for (const movieName in this.movieShowings) {
+            const movie = this.movieShowings[movieName];
+            console.log(`${movieName}: showing at ${movie.time}. Available seats: ${movie.seats.available}.`);
+        }
     }
 }

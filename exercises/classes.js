@@ -18,12 +18,29 @@ class Book {
 month and modify the getSummary method to include the month of publication.*/
 
 class Magazine extends Book {
+    constructor(title, author, year, month) {
+        super(title, author, year);
+        this.month = month;
+    }
 
+    getSummary() {
+        return `Title: ${this.title}, author: ${this.author}, year: ${this.year}, month: ${this.month}.`
+    }
 }
 
 /* 3. Add a static method to the Book class that compares the publication year of
 two books and returns the older book. Test this method with instances of
 books. */
+
+Book.returnOlderBook = function(book1, book2) {
+    if (book1.year < book2.year) {
+        return book1;
+    } else if (book1.year > book2.year) {
+        return book2;
+    } else {
+        return null;
+    }
+}
 
 /* 4. Modify the Book class to make the year and author properties private. Ensure
 that these properties are only modifiable through class methods (e.g., getters

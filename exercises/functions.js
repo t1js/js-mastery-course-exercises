@@ -1,4 +1,3 @@
-// Exercise: Remove All Instances
 // Write a function that removes all instances of a specific item
 function removeAll(arr, value) {
     const result = arr.filter((item) => item !==  value);
@@ -6,8 +5,7 @@ function removeAll(arr, value) {
    }
    console.log(removeAll([1, 2, 3, 4, 2, 2, 3], 2));
 
-// Exercise: Square Even Numbers
-// Return a new array with the square of even numbers only
+// Write a function that returns a new array with the square of even numbers only
 function squareEvenNumbers(arr) {
     const result = arr.map((item) => {
         if (item % 2 === 0) {
@@ -21,7 +19,6 @@ function squareEvenNumbers(arr) {
    console.log(squareEvenNumbers([1, 2, 3, 4, 5]));
 
 //Create a function that takes an array of numbers and a callback to apply to each element.
-//Implement your version of the array map function.
 
 function mapArray(array, callback) {
     let result = [];
@@ -39,5 +36,18 @@ function callback(num) {
 
 mapArray([1, 2, 3, 4, 5], callback);
 
+/* Write a function that uses template literals to return a formatted string. The
+function should accept an object containing a person's name, age, and
+occupation, and return a string stating the person's details. */
 
-   
+/* Write a function that takes an object representing a rectangle (with properties
+x , y , width , height ) as a parameter. Use object destructuring to extract these
+properties in the function signature. */
+
+/* Create a function that takes an arbitrary number of arguments and returns the
+sum of all arguments using the rest operator. Then, use the spread operator to
+pass an array of numbers to this function. */
+
+/* Write an arrow function that takes two parameters and returns an object that
+includes these two parameters as properties. The properties should be named
+a and b. */

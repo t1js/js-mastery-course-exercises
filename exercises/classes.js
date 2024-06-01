@@ -46,6 +46,10 @@ Book.returnOlderBook = function(book1, book2) {
 that these properties are only modifiable through class methods (e.g., getters
 and setters). */
 
+/* 5. Add getters and setters for the author and year properties in the Book class to
+handle validations: author must be a non-empty string, and year must be a
+four-digit number. */
+
 class ModifiedBook {
     constructor(title, author, year) {
         this.title = title;
@@ -53,12 +57,36 @@ class ModifiedBook {
         this._year = year;
     }
 
+    get author() {
+        return this._author;
+    }
+
+    get year() {
+        return this._year;
+    }
+
+    set author(newAuthor) {
+        if (typeof newAuthor === "string" && newAuthor !== "" && newAuthor !== " ") {
+            this._author = newAuthor;
+        } else {
+            console.error("Incorrect input");
+        }
+    }
+
+    set year(newYear) {
+        if (typeof newYear === "number" && newYear.toString().length === 4) {
+            this._year = newYear;
+        } else {
+            console.error("Incorrect input");
+        }
+    }
+
     getSummary() {
         return `Title: ${this.title}, author: ${this._author}, year: ${this._year}.`
     }
 }
 
-//alternatively according to newer conventions
+//making the year and author properties private in an alternative way (according to newer conventions)
 
 class DoubleModifiedBook {
     #author;
@@ -73,7 +101,3 @@ class DoubleModifiedBook {
         return `Title: ${this.title}, author: ${this.#author}, year: ${this.#year}.`
     }
 }
-
-/* 5. Add getters and setters for the author and year properties in the Book class to
-handle validations: author must be a non-empty string, and year must be a
-four-digit number. */

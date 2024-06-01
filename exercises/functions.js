@@ -40,9 +40,17 @@ mapArray([1, 2, 3, 4, 5], callback);
 function should accept an object containing a person's name, age, and
 occupation, and return a string stating the person's details. */
 
+function returnFormattedString(obj){
+ return `Person's name: ${obj.name}; age: ${obj.age}; occupation: ${obj.occupation}.`
+}
+
 /* Write a function that takes an object representing a rectangle (with properties
-x , y , width , height ) as a parameter. Use object destructuring to extract these
+x, y, width, height) as a parameter. Use object destructuring to extract these
 properties in the function signature. */
+
+function deconstruction(obj) {
+    
+}
 
 /* Create a function that takes an arbitrary number of arguments and returns the
 sum of all arguments using the rest operator. Then, use the spread operator to

@@ -66,7 +66,7 @@ class ModifiedBook {
     }
 
     set author(newAuthor) {
-        if (typeof newAuthor === "string" && newAuthor !== "" && newAuthor !== " ") {
+        if (typeof newAuthor === "string" && !/^\s*$/.test(newAuthor)) {
             this._author = newAuthor;
         } else {
             console.error("Incorrect input");

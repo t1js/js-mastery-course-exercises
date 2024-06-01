@@ -46,6 +46,34 @@ Book.returnOlderBook = function(book1, book2) {
 that these properties are only modifiable through class methods (e.g., getters
 and setters). */
 
+class ModifiedBook {
+    constructor(title, author, year) {
+        this.title = title;
+        this._author = author;
+        this._year = year;
+    }
+
+    getSummary() {
+        return `Title: ${this.title}, author: ${this._author}, year: ${this._year}.`
+    }
+}
+
+//alternatively according to newer conventions
+
+class DoubleModifiedBook {
+    #author;
+    #year;
+    constructor(title, author, year) {
+        this.title = title;
+        this.#author = author;
+        this.#year = year;
+    }
+
+    getSummary() {
+        return `Title: ${this.title}, author: ${this.#author}, year: ${this.#year}.`
+    }
+}
+
 /* 5. Add getters and setters for the author and year properties in the Book class to
 handle validations: author must be a non-empty string, and year must be a
 four-digit number. */

@@ -92,3 +92,11 @@ Chain these Promises together. */
 
 /* Write a function that returns a Promise. The Promise should randomly either resolve with "Success" or reject with "Error".
 Handle the rejection and print an appropriate message to the console. */
+
+/* Use the Fetch API to create a GET request to  https://whatthecommit.com/index.json.
+Then print the  commit_message  from the parsed JSON response. Use
+the  .then  and  .catch  methods and rewrite the same using  async / await. */
+
+/* Create 10 API requests to https://whatthecommit.com/index.json After all
+requests are successfully completed, alert done! Write 2 solutions: first using
+promises and second using  async  and  await */

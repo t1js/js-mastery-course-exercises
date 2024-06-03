@@ -56,6 +56,12 @@ function deconstruction(obj) {
 sum of all arguments using the rest operator. Then, use the spread operator to
 pass an array of numbers to this function. */
 
+function returnSum() {
+
+}
+
 /* Write an arrow function that takes two parameters and returns an object that
 includes these two parameters as properties. The properties should be named
 a and b. */
+
+(a, b) => ({ a, b });

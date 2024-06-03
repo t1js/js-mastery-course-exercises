@@ -1,11 +1,13 @@
-// Write a function that removes all instances of a specific item
+// Write a function that removes all instances of a specific item.
+
 function removeAll(arr, value) {
     const result = arr.filter((item) => item !==  value);
     return result;
    }
    console.log(removeAll([1, 2, 3, 4, 2, 2, 3], 2));
 
-// Write a function that returns a new array with the square of even numbers only
+// Write a function that returns a new array with the square of even numbers only.
+
 function squareEvenNumbers(arr) {
     const result = arr.map((item) => {
         if (item % 2 === 0) {
@@ -73,3 +75,20 @@ includes these two parameters as properties. The properties should be named
 a and b. */
 
 (a, b) => ({ a, b });
+
+// Write a function that logs "Hello, World!" to the console after a delay of 3 seconds using setTimeout.
+
+/* Write a function that logs "Hello, again!" to the console every 2 seconds using setInterval.
+Make sure the function stops logging after 10 seconds. */
+
+/* Create a series of setTimeout calls that log numbers 1, 2, 3, 4, and 5 to the
+console with a 1-second delay between each number. */
+
+// Write a function that returns a Promise which resolves after 2 seconds with a message "Resolved!".
+
+/* Create two functions that return Promises. The first function should resolve with a number after 1 second,
+and the second function should take that number, add 10, and resolve with the new number after 1 second.
+Chain these Promises together. */
+
+/* Write a function that returns a Promise. The Promise should randomly either resolve with "Success" or reject with "Error".
+Handle the rejection and print an appropriate message to the console. */

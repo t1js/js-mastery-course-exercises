@@ -48,8 +48,11 @@ function returnFormattedString(obj){
 x, y, width, height) as a parameter. Use object destructuring to extract these
 properties in the function signature. */
 
-function deconstruction(obj) {
-    
+function deconstruction({ x, y, width, height }) {
+    console.log(x);
+    console.log(y);
+    console.log(width);
+    console.log(height);
 }
 
 /* Create a function that takes an arbitrary number of arguments and returns the

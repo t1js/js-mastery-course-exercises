@@ -78,11 +78,43 @@ a and b. */
 
 // Write a function that logs "Hello, World!" to the console after a delay of 3 seconds using setTimeout.
 
+function helloTimeout() {
+    setTimeout(() => {
+        console.log("Hello, World!");
+    }, 3000);
+}
+
 /* Write a function that logs "Hello, again!" to the console every 2 seconds using setInterval.
 Make sure the function stops logging after 10 seconds. */
 
+function helloInterval() {
+    setTimeout(() => {
+        clearInterval(setInterval(() => {
+            console.log("Hello, again!");
+        }, 2000));
+    }, 10000);
+}
+
 /* Create a series of setTimeout calls that log numbers 1, 2, 3, 4, and 5 to the
 console with a 1-second delay between each number. */
+
+function timeoutSeries() {
+    setTimeout(() => {
+        console.log(1);
+    }, 1000);
+    setTimeout(() => {
+        console.log(2);
+    }, 2000);
+    setTimeout(() => {
+        console.log(3);
+    }, 3000);
+    setTimeout(() => {
+        console.log(4);
+    }, 4000);
+    setTimeout(() => {
+        console.log(5);
+    }, 5000);
+}
 
 // Write a function that returns a Promise which resolves after 2 seconds with a message "Resolved!".
 

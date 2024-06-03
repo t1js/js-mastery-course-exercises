@@ -59,8 +59,13 @@ function deconstruction({ x, y, width, height }) {
 sum of all arguments using the rest operator. Then, use the spread operator to
 pass an array of numbers to this function. */
 
-function returnSum() {
-
+function returnSum(...arguments) {
+    let array = [...arguments];
+    let result = 0;
+    for (let i of array) {
+        result += i;
+    }
+    return result;
 }
 
 /* Write an arrow function that takes two parameters and returns an object that

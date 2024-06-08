@@ -118,12 +118,26 @@ function timeoutSeries() {
 
 // Write a function that returns a Promise which resolves after 2 seconds with a message "Resolved!".
 
+function returnDelayedPromise() {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve("Resolved!"), 2000);
+    });
+}
+
 /* Create two functions that return Promises. The first function should resolve with a number after 1 second,
 and the second function should take that number, add 10, and resolve with the new number after 1 second.
 Chain these Promises together. */
 
+function name(params) {
+    
+}
+
 /* Write a function that returns a Promise. The Promise should randomly either resolve with "Success" or reject with "Error".
 Handle the rejection and print an appropriate message to the console. */
+
+function name(params) {
+    
+}
 
 /* Use the Fetch API to create a GET request to  https://whatthecommit.com/index.json.
 Then print the  commit_message  from the parsed JSON response. Use

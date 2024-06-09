@@ -128,9 +128,21 @@ function returnDelayedPromise() {
 and the second function should take that number, add 10, and resolve with the new number after 1 second.
 Chain these Promises together. */
 
-function name(params) {
-    
+function returnFirstPromise(number) {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(number), 1000);
+    })
 }
+
+function returnSecondPromise(number) {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(number + 10), 1000);
+})
+}
+
+returnFirstPromise(3)
+    .then((number) => returnSecondPromise(number))
+    .then((result) => console.log(result));
 
 /* Write a function that returns a Promise. The Promise should randomly either resolve with "Success" or reject with "Error".
 Handle the rejection and print an appropriate message to the console. */

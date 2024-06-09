@@ -147,9 +147,23 @@ returnFirstPromise(3)
 /* Write a function that returns a Promise. The Promise should randomly either resolve with "Success" or reject with "Error".
 Handle the rejection and print an appropriate message to the console. */
 
-function name(params) {
-    
+function randomPromiseResolution() {
+    return new Promise((resolve, reject) => {
+        if (Math.random() < 0.5) {
+            resolve("Success");
+        } else {
+        reject(new Error("Error"));
+    }
+})
 }
+
+randomPromiseResolution()
+    .then((success) => {
+        console.log(success);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
 
 /* Use the Fetch API to create a GET request to  https://whatthecommit.com/index.json.
 Then print the  commit_message  from the parsed JSON response. Use
